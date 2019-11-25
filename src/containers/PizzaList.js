@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Pizza from '../components/Pizza'
 class PizzaList extends Component {
-
-  render() {
+  render () {
+    const { pizzas, editPizzaWith } = this.props
     return (
       <table className="table table-striped">
         <thead>
@@ -15,13 +15,12 @@ class PizzaList extends Component {
         </thead>
         <tbody>
           {
-            //render Pizza here
+            pizzas.map(pizza => <Pizza key={pizza.id} pizza={pizza} editPizzaWith={editPizzaWith} />)
           }
         </tbody>
       </table>
-    );
+    )
   }
-
 }
 
-export default PizzaList;
+export default PizzaList
